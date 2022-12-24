@@ -1,12 +1,12 @@
-import { Botao } from "./styles"
+import { ButtonContainer } from "./styles"
 
-interface ButtonProps{
+interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement>{
   text: string
   modo: 'dark' | 'light'
 }
 
-export const Button = ({text, modo = 'light'}: ButtonProps) => {
+export const Button = ({text, modo = 'light', ...props}: ButtonProps) => {
   return(
-    <Botao statusColor={modo}>{text}</Botao>
+    <ButtonContainer statusColor={modo} {...props}>{text}</ButtonContainer>
   )
 }

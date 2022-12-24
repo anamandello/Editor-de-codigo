@@ -1,12 +1,12 @@
 import { MenuContainer, Nav } from "./styles"
 import { FaCode, FaUsers } from 'react-icons/fa';
 import { NavLink } from "react-router-dom";
-import { TituloText } from "../TituloText";
+import { TextTitle } from "../TextTitle";
 
 export const Menu = () => {
   return (
     <MenuContainer>
-      <TituloText textTitulo="menu"/>
+      <TextTitle textTitle="menu"/>
       <Nav>
         <ul>
           <li>

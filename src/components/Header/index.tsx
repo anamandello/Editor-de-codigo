@@ -1,26 +1,29 @@
-import { HeaderContainer, LogoAlura, PerfilContainer, Search } from "./styles"
+import { HeaderContainer, LogoAlura, Info, Search } from "./styles"
 import Logo from '../../assets/Logo.svg'
-import IconMenu from '../../assets/IconMenu.svg'
-import IconSearch from '../../assets/IconSearch.svg'
-import FotoPerfil from '../../assets/FotoPerfil.png'
 import { NavLink } from "react-router-dom"
+import { Burger } from "./Burger"
+import IconSearch from '../../assets/IconSearch.svg'
+import IconClose from '../../assets/IconClose.svg'
 import { Input } from "../Input"
+import { useState } from "react"
+import { Profile } from "./Profile"
 
 export const Header = () => {
+  const [open, setOpen] = useState(false)
   return (
     <HeaderContainer>
-      <LogoAlura>
+      <LogoAlura open={open}>
        <NavLink to={'/'}><img src={Logo} alt="Logo AluraDEV" /></NavLink>
       </LogoAlura>
-      <Search>
-        <Input type="text" placeholderInput="Busque por algo"/>
-        <img src={IconSearch} alt="Barra de pesquisa" />
-        <PerfilContainer>
-          <img src={FotoPerfil} alt="" />
-          <span>Harry</span>
-        </PerfilContainer>
-        <img src={IconMenu} alt="Menu Lateral" />
-      </Search>
+      <Info open={open}>
+        <Search open={open}>
+          <Input type="text" placeholderInput="Busque por algo"/>
+          {!open ? <img src={IconSearch} alt="Barra de Oesquisa" onClick={() => setOpen(!open)}/> :
+          <img src={IconClose} alt="Fechar Barra de Pesquisa" onClick={() => setOpen(!open)}/>}
+        </Search>
+        <Profile />
+        {!open && <Burger />}
+      </Info>
     </HeaderContainer>
   )
 }

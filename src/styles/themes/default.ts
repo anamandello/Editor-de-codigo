@@ -10,7 +10,8 @@ export const defaultTheme = {
   "--white": "#FFFFFF",
   
   "--black": "#000000",
-  "--black-rgb": "255, 255, 255",
+  "--white-rgb": "255, 255, 255",
+  "--black-rgb": "0, 0, 0",
 
   "--green": "#27C93F",
   "--red": "#FF5F56",

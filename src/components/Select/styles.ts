@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SelectContainer = styled.select`
     padding: 1rem 0.875rem;
-    background: rgba(${props => props.theme['--black-rgb']}, 0.16);
+    background: rgba(${props => props.theme['--white-rgb']}, 0.16);
     border-radius: 8px;
     color: ${props => props.theme['--white']};
     opacity: 0.64;
@@ -14,7 +14,7 @@ export const SelectContainer = styled.select`
     }
 
     &:hover, &:focus{
-      background: rgba(${props => props.theme['--black-rgb']}, 0.24);
+      background: rgba(${props => props.theme['--white-rgb']}, 0.24);
     }
 
     option {

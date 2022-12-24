@@ -9,7 +9,7 @@ interface ButtonInterface{
   statusColor: keyof typeof buttonColor
 }
 
-export const Botao = styled.button<ButtonInterface>`
+export const ButtonContainer = styled.button<ButtonInterface>`
   padding: 1rem;
   border-radius: 8px;
   background-color: ${props => props.theme[buttonColor[props.statusColor][0]]};

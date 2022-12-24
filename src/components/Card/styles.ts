@@ -1,18 +1,11 @@
 import styled from "styled-components";
 
-const borderColor = {
-  yellow: '--yellow',
-  blue: '--blue-300',
-  red: '--red',
-  green: '--green'
-} as const
-
-interface StatusProps {
-  statusColor: keyof typeof borderColor
+interface CardContainerProps {
+  colorCard: string
 }
 
-export const CardContainer = styled.div<StatusProps>`
-  background-color: ${props => props.theme[borderColor[props.statusColor]]};
+export const CardContainer = styled.div<CardContainerProps>`
+  background-color: ${props => props.colorCard};
   padding: 2rem;
   border-radius: 8px;
 

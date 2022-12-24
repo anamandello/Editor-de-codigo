@@ -1,5 +1,65 @@
 import styled from "styled-components";
 
-export const ComunidadeContainer = styled.section`
+export const CommunityContainer = styled.section`
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  width: 100%;
+  gap: 1.5rem;
+
+  @media (max-width: 768px){
+    grid-template-columns: 1fr;
+  }
+`
+
+export const CardContainer = styled.section`
+  width: 100%;
+  background-color: rgba(${props => props.theme['--black-rgb']}, 0.16);
+  border-radius: 8px;
+`
+
+export const MainInfo = styled.div`
+  padding: 1.5rem;
+`
+
+export const InfoCard = styled.div`
+  
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  h3{
+    font-weight: bold;
+    font-size: 1.3125rem;
+    line-height: 2rem;
+  }
+
+  p{
+    font-weight: 400;
+    font-size: 16px;
+    opacity: 0.8;
+    line-height: 1.5rem;
+  }
+`
+
+export const Info = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.5rem 1.5rem;
+
+  div{
+    display: flex;
+    align-items: center;
+  }
+
+  span{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.5rem;
+    
+    svg{
+      cursor: pointer;
+    }
+  }
 
 `

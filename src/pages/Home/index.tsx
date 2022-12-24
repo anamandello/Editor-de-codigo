@@ -1,32 +1,40 @@
 import { Button } from "../../components/Button"
 import { Card } from "../../components/Card"
 import { Input } from "../../components/Input"
-import { InputColor } from "./InputColor"
 import { Select } from "../../components/Select"
 import { TextArea } from "../../components/TextArea"
-import { TituloText } from "../../components/TituloText"
-import { HomeContainer } from "./styles"
+import { TextTitle } from "../../components/TextTitle"
+import { ColorsInput, HomeContainer } from "./styles"
+import { useState } from "react"
 
 export const Home = () => {
+  const [color, setColor] = useState('#000')
+  const [highLight, setHighLight] = useState(false)
+
+  function handleHighLight(e: React.MouseEvent<HTMLButtonElement, MouseEvent>){
+    e.preventDefault()
+    setHighLight(!highLight)
+  }
+
   return (
     <HomeContainer>
       <form action="">
         <div>
-          <Card />
-          <Button text='Visualizar com o highlight' modo="dark"/>
+          <Card color={color} textHighLight={highLight}/>
+          <Button text='Visualizar com o highlight' modo="dark" onClick={handleHighLight}/>
         </div>
         <div>
-          <TituloText textTitulo="Seu projeto"/>
+          <TextTitle textTitle="Seu projeto"/>
           <Input type="text" placeholderInput="Nome do seu projeto"/>
           <TextArea placeholderInput="Descrição do seu projeto"/>
-          <TituloText textTitulo="Personalização"/>
+          <TextTitle textTitle="Personalização"/>
           <div>
             <Select options={[
-                {texto:"JavaScript", valor:"JS"},
+                {texto:"JavaScript", valor:"JavaScript"},
                 {texto:"HTML", valor:"HTML"},
                 {texto:"CSS", valor:"CSS"}
               ]}/>
-            <InputColor />
+            <ColorsInput type="color" onBlur={(e) => setColor(e.target.value)}/>
           </div>
           <Button text="Salvar projeto" modo="light"/>
         </div>
