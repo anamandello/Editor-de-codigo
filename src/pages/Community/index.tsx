@@ -1,75 +1,21 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FaComment, FaHeart } from "react-icons/fa"
 import { Card } from "../../components/Card"
+import { api } from "../../utils/api"
 import { CardContainer, CommunityContainer, Info, InfoCard, MainInfo } from "./styles"
-
-interface CardProps {
-  language: string
-  color: string
-  title: string
-  body: string
-  description: string
-  like: number
-  comments: number
-  author: {
-    name: string
-    img: string
-  }
-}
+import { CardType } from "../../types/CardType"
 
 export const Community = () => {
-  const [listCard, setListCard] = useState<CardProps[]>([
-    {
-      language: 'Javascript',
-      color: '#FF00FF',
-      title: 'Título do projeto',
-      body: 'const number = 1 + 2',
-      description: 'Essa é a descrição do meu projeto.',
-      like: 5,
-      comments: 3,
-      author: {
-        name: 'Ana',
-        img: 'rota'
-      }
-    },{
-      language: 'Javascript',
-      color: '#FF00FF',
-      title: 'Título do projeto',
-      body: 'const number = 1 + 2',
-      description: 'Essa é a descrição do meu projeto.',
-      like: 5,
-      comments: 3,
-      author: {
-        name: 'Ana',
-        img: 'rota'
-      }
-    },{
-      language: 'Javascript',
-      color: '#FF00FF',
-      title: 'Título do projeto',
-      body: 'const number = 1 + 2',
-      description: 'Essa é a descrição do meu projeto.',
-      like: 5,
-      comments: 3,
-      author: {
-        name: 'Ana',
-        img: 'rota'
-      }
-    },{
-      language: 'javascript',
-      color: '#FF00FF',
-      title: 'Título do projeto',
-      body: "const teste = 'ee' \nconst number = 22",
-      description: 'Essa é a descrição do meu projeto.',
-      like: 5,
-      comments: 3,
-      author: {
-        name: 'Ana',
-        img: 'rota'
-      }
-    },
+  const [listCard, setListCard] = useState<CardType[]>([])
 
-  ])
+  async function buscaLista(){
+    const lista = await api.get('/code')
+    setListCard(lista.data)
+  }
+
+  useEffect(() => {
+    buscaLista()
+  }, [])
 
   return(
     <CommunityContainer>

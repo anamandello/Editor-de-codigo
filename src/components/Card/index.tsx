@@ -1,27 +1,29 @@
 import { CardContainer } from "./styles"
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { obsidian } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { useEffect, useState } from "react";
+import { TextareaHTMLAttributes, useEffect, useState } from "react";
 
-interface CardProps{
-  textCard?: string,
+interface CardProps extends TextareaHTMLAttributes<HTMLElement>{
   color: string,
   textHighLight: boolean,
   language?: string
 }
 
-export const Card = ({textCard, color = '#FF00FF', textHighLight = false, language = 'HTML'}: CardProps) => {
+export const Card = ({color = '#FF00FF', textHighLight = false, language = 'HTML', ...props }: CardProps) => {
   const [text, setText] = useState('')
 
   useEffect(() => {
-    if(textCard)
-      setText(textCard)
-  },[])
+    const { value } = {...props}
+    if(typeof(value) === 'string') {
+      setText(value)
+    }
+  }, [{...props}])
+
 
   return (
     <CardContainer colorCard={color}>
       {!textHighLight ?
-        <textarea value={text} onChange={(e) => setText(e.target.value)}/> :
+        <textarea {...props}/> :
         <SyntaxHighlighter 
           language={language} 
           children={text} 

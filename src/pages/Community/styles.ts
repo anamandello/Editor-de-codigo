@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CommunityContainer = styled.section`
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, 50%);
   width: 100%;
   gap: 1.5rem;
 
