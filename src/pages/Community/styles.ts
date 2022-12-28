@@ -6,6 +6,11 @@ export const CommunityContainer = styled.section`
   width: 100%;
   gap: 1.5rem;
 
+  a{
+    text-decoration: none;
+    color: ${props => props.theme['--white']};
+  }
+
   @media (max-width: 768px){
     grid-template-columns: 1fr;
   }

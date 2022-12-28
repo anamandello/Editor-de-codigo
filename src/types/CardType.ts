@@ -1,4 +1,5 @@
 export type CardType = {
+  id?: number
   language: string
   color: string
   title: string

@@ -1,3 +1,4 @@
+import { SelectHTMLAttributes } from "react"
 import { SelectContainer } from "./styles"
 
 interface OptionProps{
@@ -5,13 +6,13 @@ interface OptionProps{
   valor: string
 }
 
-interface SelectProps{
+interface SelectProps extends SelectHTMLAttributes<HTMLElement>{
   options: OptionProps[]
 }
 
-export const Select = ({options}: SelectProps) => {
+export const Select = ({options, ...props}: SelectProps) => {
   return (
-    <SelectContainer>
+    <SelectContainer {...props}>
       {options.map((item, index) => (
         <option key={index} value={item.valor}>{item.texto}</option>
       ))}
