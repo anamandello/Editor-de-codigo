@@ -69,6 +69,20 @@
       "like": 0,
       "title": "Testando CSS",
       "id": 5
+    },
+    {
+      "author": {
+        "img": "",
+        "name": ""
+      },
+      "body": "const teste = 'Este é um exemplo de como o editor funciona'\nconst numero = 4\n\nasync function buscaLista(){\n    const lista = await api.get('/code')\n    setListCard(lista.data)\n  }",
+      "color": "#27b4b1",
+      "comments": 0,
+      "description": "Testando o projeto",
+      "language": "javascript",
+      "like": 0,
+      "title": "Projeto de teste",
+      "id": 6
     }
   ]
 }

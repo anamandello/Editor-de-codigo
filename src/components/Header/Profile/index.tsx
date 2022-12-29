@@ -5,7 +5,7 @@ export const Profile = () => {
   return (
     <ProfileContainer>
       <img src={FotoPerfil} alt="" />
-      <span>Harry</span>
+      <span>Ana</span>
     </ProfileContainer>
   )
 }

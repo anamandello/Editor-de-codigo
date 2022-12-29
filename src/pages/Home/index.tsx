@@ -62,7 +62,7 @@ export const Home = () => {
       try{
         const result = api.patch(`/code/${id}`, comment )
         console.log(result)
-        alert('deu certo')
+        alert('Código editado com sucesso!')
       }catch(erro){
         console.log(erro)
       }
@@ -71,7 +71,7 @@ export const Home = () => {
       try{
         const result = api.post(`/code`, comment )
         console.log(result)
-        alert('deu certo')
+        alert('Código adicionado com sucesso!')
       }catch(erro){
         console.log(erro)
       }
