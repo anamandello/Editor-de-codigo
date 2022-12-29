@@ -14,6 +14,8 @@ export const CommunityContainer = styled.section`
   @media (max-width: 768px){
     grid-template-columns: 1fr;
   }
+
+  margin-bottom: 6rem;
 `
 
 export const CardContainer = styled.section`
@@ -44,10 +46,16 @@ export const InfoCard = styled.div`
     opacity: 0.8;
     line-height: 1.5rem;
   }
+
+  &:hover{
+    div:nth-child(2){
+      display: flex;
+    }
+  }
 `
 
 export const Info = styled.div`
-  display: flex;
+  display: none;
   justify-content: space-between;
   padding: 0 1.5rem 1.5rem;
 
@@ -61,9 +69,14 @@ export const Info = styled.div`
     gap: 0.5rem;
     align-items: center;
     padding: 0.5rem;
+    border-radius: 16px;
     
     svg{
       cursor: pointer;
+    }
+
+    &:hover{
+      background: rgba(${props => props.theme['--white-rgb']}, 0.16);
     }
   }
 

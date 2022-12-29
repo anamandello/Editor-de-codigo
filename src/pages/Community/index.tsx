@@ -8,7 +8,6 @@ import { Link } from "react-router-dom"
 
 export const Community = () => {
   const [listCard, setListCard] = useState<CardType[]>([])
-  const [id, setId] = useState()
 
   async function buscaLista(){
     const lista = await api.get('/code')
@@ -22,9 +21,10 @@ export const Community = () => {
   return(
     <CommunityContainer>
       {listCard.map((item, index) => (
-      <Link to={`/${item.id}`} key={index}>
         <CardContainer>
+        <Link to={`/${item.id}`} key={index}>
           <Card color={item.color} value={item.body} textHighLight language={item.language}/>
+        </Link>  
           <InfoCard>
             <MainInfo>
               <h3>{item.title}</h3>
@@ -35,14 +35,13 @@ export const Community = () => {
                 <span><FaComment /> {item.like}</span>
                 <span><FaHeart /> {item.comments}</span>
               </div>
-              <div>
+              <span>
                 <img src={item.author.img} />
-                <span>{item.author.name}</span>
-              </div>
+                {item.author.name}
+              </span>
             </Info>
           </InfoCard>
         </CardContainer>
-      </Link>  
       ))}
     </CommunityContainer>
   )
