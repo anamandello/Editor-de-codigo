@@ -39,7 +39,7 @@ export const Home = () => {
       color: '#000',
       comments: 0,
       description: '',
-      language: '',
+      language: 'javascript',
       like: 0,
       title: ''
       })
@@ -82,7 +82,7 @@ export const Home = () => {
     <HomeContainer>
       <form action="">
         <div>
-          <Card color={comment.color} textHighLight={highLight} name="body" value={comment.body} onChange={handleValuesForm}/>
+          <Card color={comment.color} textHighLight={highLight} language={comment.language} name="body" value={comment.body} onChange={handleValuesForm}/>
           <Button text='Visualizar com o highlight' modo="dark" onClick={handleHighLight}/>
         </div>
         <div>
@@ -92,7 +92,7 @@ export const Home = () => {
           <TextTitle textTitle="Personalização"/>
           <div>
             <Select options={[
-                {texto:"JavaScript", valor:"JavaScript"},
+                {texto:"JavaScript", valor:"javascript"},
                 {texto:"HTML", valor:"HTML"},
                 {texto:"CSS", valor:"CSS"}
               ]} name="language"  value={comment.language} onChange={handleValuesForm}/>

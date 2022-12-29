@@ -6,10 +6,10 @@ import { TextareaHTMLAttributes, useEffect, useState } from "react";
 interface CardProps extends TextareaHTMLAttributes<HTMLElement>{
   color: string,
   textHighLight: boolean,
-  language?: string
+  language: string
 }
 
-export const Card = ({color = '#FF00FF', textHighLight = false, language = 'HTML', ...props }: CardProps) => {
+export const Card = ({color = '#FF00FF', textHighLight = false, language, ...props }: CardProps) => {
   const [text, setText] = useState('')
 
   useEffect(() => {
