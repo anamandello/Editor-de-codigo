@@ -1,12 +1,8 @@
-import { InputHTMLAttributes, TextareaHTMLAttributes } from "react"
+import { TextareaHTMLAttributes } from "react"
 import { TextAreaContainer } from "./styles"
 
-interface TextAreaProps extends TextareaHTMLAttributes<HTMLElement> {
-  placeholderInput: string
-}
-
-export const TextArea = ({placeholderInput, ...props}: TextAreaProps) => {
+export const TextArea = ({...props}: TextareaHTMLAttributes<HTMLElement>) => {
   return (
-    <TextAreaContainer placeholder={placeholderInput} {...props}/>
+    <TextAreaContainer {...props}/>
   )
 }

@@ -1,6 +1,6 @@
 import { ButtonContainer } from "./styles"
 
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement>{
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
   text: string
   modo: 'dark' | 'light'
 }

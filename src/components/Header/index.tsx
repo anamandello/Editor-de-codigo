@@ -17,7 +17,7 @@ export const Header = () => {
       </LogoAlura>
       <Info open={open}>
         <Search open={open}>
-          <Input type="text" placeholderInput="Busque por algo"/>
+          <Input type="text" placeholder="Busque por algo"/>
           {!open ? <img src={IconSearch} alt="Barra de Oesquisa" onClick={() => setOpen(!open)}/> :
           <img src={IconClose} alt="Fechar Barra de Pesquisa" onClick={() => setOpen(!open)}/>}
         </Search>

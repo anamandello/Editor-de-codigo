@@ -20,9 +20,9 @@ export const Community = () => {
 
   return(
     <CommunityContainer>
-      {listCard.map((item, index) => (
-        <CardContainer>
-        <Link to={`/${item.id}`} key={index}>
+      {listCard.map(item => (
+        <CardContainer key={item.id}>
+        <Link to={`/${item.id}`}>
           <Card color={item.color} value={item.body} textHighLight language={item.language}/>
         </Link>  
           <InfoCard>
